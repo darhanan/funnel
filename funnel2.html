@@ -454,15 +454,55 @@ document.getElementById('phoneInput').addEventListener('input', e => {
   checkReady();
 });
 
+// Paste your Google Apps Script URL here after setup
+const SHEET_URL = 'YOUR_APPS_SCRIPT_URL';
+
+const ageLabels = { school: 'Школьник', student: 'Студент', parent: 'Родитель' };
+const sourceLabels = { social: 'Соцсети', friend: 'От знакомых', other: 'Другое' };
+
+async function submitToSheet() {
+  const nb = document.getElementById('nextBtn');
+  nb.textContent = 'Отправляем...';
+  nb.classList.remove('ready');
+
+  let phone = answers.phone;
+  let fmt = '';
+  if (phone.length > 0) fmt = '+' + phone.slice(0,1);
+  if (phone.length > 1) fmt += ' (' + phone.slice(1,4);
+  if (phone.length >= 4) fmt += ') ' + phone.slice(4,7);
+  if (phone.length >= 7) fmt += '-' + phone.slice(7,9);
+  if (phone.length >= 9) fmt += '-' + phone.slice(9,11);
+
+  const payload = {
+    name: answers.name,
+    phone: fmt,
+    age: ageLabels[answers.age] || answers.age,
+    source: sourceLabels[answers.source] || answers.source,
+    date: new Date().toLocaleString('ru-RU', { timeZone: 'Asia/Almaty' })
+  };
+
+  localStorage.setItem('ru_name', answers.name);
+  localStorage.setItem('ru_phone', answers.phone);
+
+  try {
+    await fetch(SHEET_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+  } catch (_) {}
+
+  window.location.href = 'congrats.html';
+}
+
 document.getElementById('nextBtn').addEventListener('click', () => {
   if (!document.getElementById('nextBtn').classList.contains('ready')) return;
   if (step < TOTAL) {
     step++;
     updateUI('forward');
   } else {
-    localStorage.setItem('ru_name', answers.name);
-    localStorage.setItem('ru_phone', answers.phone);
-    window.location.href = 'congrats.html';
+    submitToSheet();
   }
 });
 
