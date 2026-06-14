@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Поздравляем — RiseUp Academy</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --accent:#0485F7;
+  --accent-dark:#0369D1;
+  --accent-light:#EBF4FF;
+  --bg:#F7F9FC;
+  --dark:#0A1020;
+  --text:#19293D;
+  --muted:#6B7A93;
+  --border:#E3EAF4;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{height:100%;}
+body{
+  font-family:'Manrope',system-ui,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+}
+
+/* ── HEADER ── */
+.f-header{
+  position:sticky;top:0;z-index:100;
+  background:rgba(247,249,252,.92);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--border);
+  padding:0 48px;
+}
+.f-header-inner{
+  max-width:900px;margin:0 auto;
+  height:68px;
+  display:flex;
+  align-items:center;
+}
+.f-logo{
+  display:flex;align-items:center;gap:9px;
+  text-decoration:none;
+}
+.f-logo-mark{
+  width:34px;height:34px;border-radius:9px;
+  background:var(--accent);
+  display:flex;align-items:center;justify-content:center;
+  font-weight:900;font-size:13px;color:#fff;
+  box-shadow:0 3px 12px rgba(4,133,247,.35);
+}
+.f-logo-text{font-size:16px;font-weight:800;color:var(--dark);letter-spacing:-.3px;}
+.f-logo-text em{color:var(--accent);font-style:normal;}
+
+/* ── MAIN ── */
+main{
+  flex:1;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  padding:64px 24px 80px;
+}
+
+/* ── CONGRATS CARD ── */
+.cg-wrap{
+  width:100%;max-width:580px;
+  text-align:center;
+}
+
+/* confetti ring */
+.cg-icon{
+  width:100px;height:100px;border-radius:50%;
+  background:linear-gradient(135deg,#0485F7 0%,#06C9FF 100%);
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 32px;
+  box-shadow:0 8px 40px rgba(4,133,247,.35);
+  animation:popIn .5s cubic-bezier(.16,1,.3,1) both;
+  font-size:46px;
+  line-height:1;
+}
+@keyframes popIn{
+  from{opacity:0;transform:scale(.6)}
+  to{opacity:1;transform:scale(1)}
+}
+
+.cg-title{
+  font-size:clamp(32px,5vw,52px);
+  font-weight:900;color:var(--dark);
+  letter-spacing:-1.2px;line-height:1.05;
+  margin-bottom:16px;
+  animation:fadeUp .45s .1s cubic-bezier(.16,1,.3,1) both;
+}
+.cg-name{color:var(--accent);}
+
+.cg-sub{
+  font-size:18px;color:var(--muted);
+  line-height:1.6;max-width:420px;margin:0 auto 40px;
+  animation:fadeUp .45s .18s cubic-bezier(.16,1,.3,1) both;
+}
+
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(16px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* ── INFO BLOCKS ── */
+.cg-cards{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:14px;margin-bottom:36px;
+  animation:fadeUp .45s .26s cubic-bezier(.16,1,.3,1) both;
+}
+.cg-card{
+  background:#fff;
+  border:1.5px solid var(--border);
+  border-radius:18px;
+  padding:22px 20px;
+  text-align:left;
+}
+.cg-card-ico{font-size:28px;margin-bottom:10px;line-height:1;}
+.cg-card-label{font-size:12px;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:5px;}
+.cg-card-val{font-size:15px;font-weight:800;color:var(--dark);line-height:1.4;}
+
+/* ── CTA ── */
+.cg-cta{
+  animation:fadeUp .45s .34s cubic-bezier(.16,1,.3,1) both;
+}
+.btn-primary{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:16px 40px;border-radius:14px;
+  background:var(--accent);color:#fff;border:none;
+  font-family:inherit;font-size:16px;font-weight:800;
+  cursor:pointer;text-decoration:none;
+  box-shadow:0 6px 24px rgba(4,133,247,.32);
+  transition:all .2s;
+}
+.btn-primary:hover{
+  background:var(--accent-dark);
+  transform:translateY(-2px);
+  box-shadow:0 10px 32px rgba(4,133,247,.38);
+}
+.cg-note{
+  margin-top:18px;
+  font-size:13px;color:var(--muted);
+  line-height:1.5;
+}
+
+/* ── TIMELINE ── */
+.cg-timeline{
+  margin-top:48px;
+  background:#fff;
+  border:1.5px solid var(--border);
+  border-radius:20px;
+  padding:28px 32px;
+  text-align:left;
+  animation:fadeUp .45s .42s cubic-bezier(.16,1,.3,1) both;
+}
+.cg-tl-title{font-size:14px;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:20px;}
+.cg-tl-items{display:flex;flex-direction:column;gap:0;}
+.cg-tl-item{
+  display:flex;align-items:flex-start;gap:14px;
+  position:relative;
+}
+.cg-tl-item:not(:last-child)::after{
+  content:'';
+  position:absolute;
+  left:15px;top:32px;
+  width:2px;height:calc(100% - 2px);
+  background:var(--border);
+}
+.cg-tl-dot{
+  width:32px;height:32px;border-radius:50%;
+  background:var(--accent-light);border:2px solid var(--accent);
+  display:flex;align-items:center;justify-content:center;
+  font-size:14px;font-weight:900;color:var(--accent);
+  flex-shrink:0;position:relative;z-index:1;
+}
+.cg-tl-dot.done{
+  background:var(--accent);color:#fff;border-color:var(--accent);
+}
+.cg-tl-body{padding:4px 0 24px;}
+.cg-tl-step{font-size:13px;font-weight:700;color:var(--accent);margin-bottom:3px;}
+.cg-tl-text{font-size:15px;font-weight:700;color:var(--dark);}
+.cg-tl-desc{font-size:13px;color:var(--muted);margin-top:3px;line-height:1.5;}
+
+/* ── MOBILE ── */
+@media(max-width:600px){
+  .f-header{padding:0 16px;}
+  main{padding:40px 16px 60px;justify-content:flex-start;}
+  .cg-icon{width:80px;height:80px;font-size:36px;margin-bottom:24px;}
+  .cg-title{font-size:30px;}
+  .cg-sub{font-size:16px;}
+  .cg-cards{grid-template-columns:1fr;gap:10px;}
+  .cg-timeline{padding:22px 20px;}
+  .btn-primary{width:100%;justify-content:center;padding:15px 24px;}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="f-header">
+  <div class="f-header-inner">
+    <a href="index.html" class="f-logo">
+      <div class="f-logo-mark">R↑</div>
+      <span class="f-logo-text">Rise<em>Up</em> Academy</span>
+    </a>
+  </div>
+</header>
+
+<main>
+  <div class="cg-wrap">
+
+    <div class="cg-icon">🎉</div>
+
+    <h1 class="cg-title">Поздравляем,<br><span class="cg-name" id="cgName">!</span></h1>
+    <p class="cg-sub">Ваша заявка принята. Наш менеджер свяжется с вами в ближайшее время и расскажет всё о старте обучения.</p>
+
+    <div class="cg-cards">
+      <div class="cg-card">
+        <div class="cg-card-ico">📞</div>
+        <div class="cg-card-label">Ваш номер</div>
+        <div class="cg-card-val" id="cgPhone">—</div>
+      </div>
+      <div class="cg-card">
+        <div class="cg-card-ico">⏱️</div>
+        <div class="cg-card-label">Ответим через</div>
+        <div class="cg-card-val">30 минут</div>
+      </div>
+    </div>
+
+    <div class="cg-cta">
+      <a href="https://wa.me/" class="btn-primary">
+        <span>💬</span> Написать нам в WhatsApp
+      </a>
+      <p class="cg-note">Или ждите звонка — мы позвоним сами</p>
+    </div>
+
+    <div class="cg-timeline">
+      <div class="cg-tl-title">Что дальше?</div>
+      <div class="cg-tl-items">
+        <div class="cg-tl-item">
+          <div class="cg-tl-dot done">✓</div>
+          <div class="cg-tl-body">
+            <div class="cg-tl-step">Готово</div>
+            <div class="cg-tl-text">Заявка отправлена</div>
+            <div class="cg-tl-desc">Ваши данные получены нашей командой</div>
+          </div>
+        </div>
+        <div class="cg-tl-item">
+          <div class="cg-tl-dot">2</div>
+          <div class="cg-tl-body">
+            <div class="cg-tl-step">В течение 30 минут</div>
+            <div class="cg-tl-text">Звонок от менеджера</div>
+            <div class="cg-tl-desc">Расскажем о программе, ответим на вопросы и подберём удобное время</div>
+          </div>
+        </div>
+        <div class="cg-tl-item">
+          <div class="cg-tl-dot">3</div>
+          <div class="cg-tl-body">
+            <div class="cg-tl-step">После звонка</div>
+            <div class="cg-tl-text">Начало обучения</div>
+            <div class="cg-tl-desc">Получите доступ к курсу и первый урок с преподавателем</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<script>
+const name = localStorage.getItem('ru_name') || '';
+const phone = localStorage.getItem('ru_phone') || '';
+
+if (name) {
+  document.getElementById('cgName').textContent = name + '!';
+} else {
+  document.getElementById('cgName').textContent = '!';
+}
+
+if (phone) {
+  let v = phone;
+  let fmt = '';
+  if (v.length > 0) fmt = '+' + v.slice(0,1);
+  if (v.length > 1) fmt += ' (' + v.slice(1,4);
+  if (v.length >= 4) fmt += ') ' + v.slice(4,7);
+  if (v.length >= 7) fmt += '-' + v.slice(7,9);
+  if (v.length >= 9) fmt += '-' + v.slice(9,11);
+  document.getElementById('cgPhone').textContent = fmt;
+}
+</script>
+</body>
+</html>
